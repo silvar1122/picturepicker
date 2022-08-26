@@ -1,6 +1,4 @@
 <?php
-
-define('APP_NAME','PICTURES');
 //Get Heroku ClearDB connection information
 $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 $cleardb_server = $cleardb_url["host"];
@@ -10,14 +8,16 @@ $cleardb_db = substr($cleardb_url["path"],1);
 $active_group = 'default';
 $query_builder = TRUE;
 // Connect to DB
-$conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
+// $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
+
+$conn=new PDO($cleardb_server,$cleardb_username,$cleardb_password,$cleardb_db);
+
+
 if($conn){
-    echo "connection successfull";
+    echo("succesfully connected");
+    
 }
 else{
-    echo "error occured";
+    echo ("error occured");
 }
-
-$conn->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
-$conn->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY,true);
-$conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+?>
