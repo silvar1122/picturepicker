@@ -19,4 +19,15 @@
 
             return $stmt;
         }
+
+        public function create(){
+            $querry='INSERT INTO '.$this->table.' (title,url) VALUES(?,?)';
+            $stmt=$this->conn->prepare($querry);
+           
+            if($stmt->execute([$this->title,$this->url])){
+                return true;
+            }
+                printf('Error %s. \n',$stmt->error);
+                return false;
+        }
     } 
