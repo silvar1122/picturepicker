@@ -13,7 +13,7 @@
         }
 
         public function read(){
-            $querry='SELECT * FROM '.$this->table;
+            $querry='SELECT * FROM '.$this->table.' ORDER BY ID';
             $stmt=$this->conn->prepare($querry);
             $stmt->execute();
 
