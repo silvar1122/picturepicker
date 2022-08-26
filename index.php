@@ -16,7 +16,7 @@ $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $c
 // $cleardb_db='mysql:host=127.0.0.1';
 // $db_name='pictures';
 
-$conn=mysqli_connect($cleardb_server,$cleardb_username,$cleardb_password,$db_name);
+// $conn=mysqli_connect($cleardb_server,$cleardb_username,$cleardb_password,$db_name);
 
 if($conn){
     
