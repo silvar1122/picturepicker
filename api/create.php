@@ -30,7 +30,7 @@
     
     
     $pictures->title="image";
-    $pictures->url="https://pickpicker.herokuapp.com/api/Uploads".$file_name;
+    $pictures->url="https://pickpicker.herokuapp.com/api/Uploads".$file_name."/";
 
     if($pictures->create()){
         echo json_encode(array('message'=>'data successfully added'));
