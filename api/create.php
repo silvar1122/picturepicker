@@ -21,23 +21,25 @@
         if(empty($errors)==true) {
             move_uploaded_file($file_tmp,"Uploads/".$file_name);
             echo "Success";
+
+            $data=json_decode($result);
+    
+    
+            $pictures->title="image";
+            $pictures->url="https://pickpicker.herokuapp.com/api/Uploads".$file_name."/";
+        
+            if($pictures->create()){
+                echo json_encode(array('message'=>'data successfully added'));
+            }
+            else{
+                echo json_encode(array('message'=>'failed to add data'));
+            }
+        
+            
+          
          }else{
             print_r($errors);
          }
       
     }
-    $data=json_decode($result);
-    
-    
-    $pictures->title="image";
-    $pictures->url="https://pickpicker.herokuapp.com/api/Uploads".$file_name."/";
-
-    if($pictures->create()){
-        echo json_encode(array('message'=>'data successfully added'));
-    }
-    else{
-        echo json_encode(array('message'=>'failed to add data'));
-    }
-
-    
     
