@@ -25,7 +25,7 @@
     
     
             $pictures->title=$_POST['image_name'];
-            $pictures->url="https://pickpicker.herokuapp.com/api/Uploads".$file_name."/".$_POST['image_name'];
+            $pictures->url="https://pickpicker.herokuapp.com/api/Uploads/".$_POST['image_name'];
         
             if($pictures->create()){
                 echo json_encode(array('message'=>'data successfully added'));
