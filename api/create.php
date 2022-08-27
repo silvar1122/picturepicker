@@ -10,11 +10,27 @@
 
     //getData
     $result=file_get_contents('php://input');
+    if(isset($_FILES['image'])){
+        $errors= array();
+        $file_name = $_FILES['image']['name'];
+        $file_size = $_FILES['image']['size'];
+        $file_tmp = $_FILES['image']['tmp_name'];
+        $file_type = $_FILES['image']['type'];
+        // $file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
+
+        if(empty($errors)==true) {
+            move_uploaded_file($file_tmp,"Uploads/".$file_name);
+            echo "Success";
+         }else{
+            print_r($errors);
+         }
+      
+    }
     $data=json_decode($result);
     
     
-    $pictures->title=$data->title;
-    $pictures->url=$data->url;
+    $pictures->title="image";
+    $pictures->url="https://pickpicker.herokuapp.com/api/Uploads".$file_name;
 
     if($pictures->create()){
         echo json_encode(array('message'=>'data successfully added'));

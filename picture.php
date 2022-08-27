@@ -21,6 +21,7 @@
         }
 
         public function create(){
+            $target_dir = "uploads/";
             $querry='INSERT INTO '.$this->table.' (title,url) VALUES(?,?)';
             $stmt=$this->conn->prepare($querry);
            
