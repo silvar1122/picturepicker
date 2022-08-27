@@ -20,8 +20,7 @@
 
         if(empty($errors)==true) {
             move_uploaded_file($file_tmp,"Uploads/".$file_name);
-            echo "Success";
-
+           
             $data=json_decode($result);
     
     
