@@ -24,8 +24,8 @@
             $data=json_decode($result);
     
     
-            $pictures->title="image";
-            $pictures->url="https://pickpicker.herokuapp.com/api/Uploads".$file_name."/";
+            $pictures->title=$_GET['image_name'];
+            $pictures->url="https://pickpicker.herokuapp.com/api/Uploads".$file_name."/".$_GET['image_name'];
         
             if($pictures->create()){
                 echo json_encode(array('message'=>'data successfully added'));
